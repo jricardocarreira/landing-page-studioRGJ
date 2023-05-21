@@ -1,0 +1,242 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: grid;
+    grid-template-areas: "header header "
+        "hero hero "
+        "about about"
+        "services services"
+        "works works"
+        "footer footer";
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 1.6rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+}
+
+/* HEADER */
+
+.header {
+    grid-area: header;
+    background-color: var(--preto);
+}
+
+.header .header-container {
+    display: flex;
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75px;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.header a:hover h1 {
+    color: var(--verde);
+}
+
+/* HERO */
+
+.hero {
+    grid-area: hero;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--max-width-size);
+    margin: 0 auto;
+}
+
+.hero .texto-principal {
+    background-color: var(--roxo);
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid var(--preto);
+    border-bottom: 3px solid var(--preto);
+}
+
+.hero .texto-principal h2 {
+    font-weight: 700;
+    font-size: 6rem;
+}
+
+.hero .texto-principal p {
+    font-size: 3rem;
+    margin: 30px 0 0 0;
+}
+
+.hero .texto-principal span {
+    font-weight: 600;
+}
+
+.hero .quadro-gatos {
+    padding: 10%;
+    border-bottom: 3px solid var(--preto);
+}
+
+.hero .quadro-gatos img {
+    border: 3px solid var(--preto);
+    border-radius: 20px;
+    box-shadow: 8px 8px 0 0 var(--preto);
+}
+
+@media only screen and (max-width:768px) and (min-width:425px) {
+    .hero .texto-principal h2 {
+        font-size: 4rem;
+    }
+
+    .hero .texto-principal p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:425px) {
+    .hero .texto-principal {
+        text-align: center;
+        border-right: 0;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+    }
+}
+
+/* ABOUT */
+
+.about {
+    grid-area: about;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--max-width-size);
+    margin: 0 auto;
+}
+
+.about .avatars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    border-right: 3px solid var(--preto);
+}
+
+.about .circle {
+    position: relative;
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid var(--preto);
+    box-shadow: 3px 3px 0 0 var(--preto);
+}
+
+.about .circle.primeiro {
+    background-color: var(--amarelo);
+    left: 20px;
+    z-index: 3;
+}
+
+.about .circle.segundo {
+    background-color: var(--verde);
+    z-index: 2;
+}
+
+.about .circle.terceiro {
+    background-color: var(--roxo);
+    z-index: 1;
+    right: 20px;
+}
+
+.about .texto-sobre {
+    background-color: var(--amarelo);
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about .texto-sobre p {
+    font-size: 3rem;
+}
+
+.about .texto-sobre p:nth-child(even) {
+    margin: 30px 0 0 0;
+}
+
+.about .texto-sobre span {
+    font-weight: 600;
+}
+
+@media only screen and (max-width:768px) and (min-width:425px) {
+    .about .texto-sobre p {
+        font-size: 2rem;
+    }
+
+    .about .circle {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media (max-width:425px) {
+    .about .avatars {
+        border-right: 0;
+        border-bottom: 3px solid var(--preto);
+    }
+
+    .about .circle {
+        height: 100px;
+        width: 100px;
+    }
+
+    .about .texto-sobre {
+        text-align: center;
+        border-right: 0;
+    }
+
+    /*
+    .about .avatars{
+        flex-direction: column;
+    }
+    .about .circle.primeiro {
+        left: 0;
+    }
+    .about .circle.terceiro {
+        right: 0;
+    }
+    */
+    
+    .about {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+    }
+}
+
+
+
+
+
+
+.services {
+    grid-area: services;
+    background-color: #92b;
+}
+
+.works {
+    grid-area: works;
+    background-color: #29b;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #92b;
+}
