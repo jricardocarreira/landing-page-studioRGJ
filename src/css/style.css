@@ -8,6 +8,7 @@ body {
         "hero hero"
         "about about"
         "services services"
+        "our-works our-works"
         "works works"
         "footer footer";
     grid-template-columns: repeat(2, 1fr);
@@ -223,10 +224,11 @@ body {
 .services {
     grid-area: services;
     display: grid;
-    grid-template-areas: "title title" "web-dev app-design";
+    grid-template-areas: "title title"
+        "web-dev app-design";
     max-width: var(--max-width-size);
-    margin: 0 auto;
     position: relative;
+    justify-content: space-evenly;
 }
 
 .services .title {
@@ -257,14 +259,13 @@ body {
     align-items: center;
     background-color: #fff;
     gap: 25px;
-    margin: 0 50px 0 50px;
     width: 500px;
     height: 650px;
     border: 3px solid var(--preto);
     border-radius: 15px;
     box-shadow: 8px 8px 0 0 var(--preto);
+    margin-bottom: 50px;
 }
-
 
 .services .card h3 {
     font-size: 3rem;
@@ -294,7 +295,7 @@ body {
 .services .rectangle {
     position: absolute;
     width: 100%;
-    height: 70vh;
+    height: 50vh;
     border-bottom: 3px solid var(--preto);
 }
 
@@ -349,7 +350,6 @@ body {
     .services .card {
         width: 300px;
         height: 450px;
-        margin: 0 20px 0 20px;
     }
 
     .services .card img {
@@ -382,26 +382,176 @@ body {
 
 /* WORKS */
 
+.our-works {
+    grid-area: our-works;
+    display: flex;
+    justify-content: center;
+    background-color: var(--preto);
+}
+
+.our-works h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    background-color: var(--verde);
+    display: flex;
+    width: 450px;
+    height: 90px;
+    justify-content: center;
+    align-items: center;
+    margin: 72px;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    box-shadow: 8px 8px 0 0 #fff;
+}
+
 .works {
     grid-area: works;
     display: grid;
-    grid-template-areas: "title title title" "R G B";
+    grid-template-columns: repeat(3, 1fr);
+    max-width: var(--max-width-size);
+    width: 100vw;
+    border-bottom: 3px solid var(--preto);;
 }
 
-.work.r{
-    grid-area: R;
+.works .work {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid var(--preto);
 }
 
-.work.g{
-    grid-area: G;
+.works .work .subcontorno {
+    margin: 50px;
+    background-color: #fff;
+    width: 225px;
+    vertical-align: text-top;
+    border-radius: 15px;
+    border: 3px solid var(--preto);
+    box-shadow: 8px 8px 0 0 var(--preto);
+    transition: 0.3s;
 }
 
-.work.j{
-    grid-area: J;
+.works .work .subcontorno p {
+    font-size: 18rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 15px;
+    line-height: 100%;
+    background-color: var(--roxo);
+    border-radius: 10px;
+    border: 3px solid var(--preto);
+    transition: 0.3s;
 }
 
+.works .work .subcontorno:hover {
+    box-shadow: 12px 12px 0 0 var(--preto);
+}
+
+.works .work .subcontorno:hover p{
+    opacity: 0.85;
+    background-color: var(--amarelo);
+}
+
+.works .r {
+    background-color: var(--roxo);
+}
+
+.works .g {
+    background-color: var(--amarelo);
+}
+
+.works .j {
+    background-color: var(--verde);
+    border-right: 0;
+}
+
+
+
+@media only screen and (max-width:768px) and (min-width:425px) {
+    .our-works h2 {
+        font-size: 2rem;
+    }
+
+    .our-works h2 {
+        width: 300px;
+        height: 75px;
+        margin: 40px;
+    }
+
+    .works .work .subcontorno {
+        margin: 40px;
+        width: 160px
+    }
+
+    .works .work .subcontorno p {
+        font-size: 12rem;
+    }
+
+}
+
+@media (max-width:426px) {
+    .works .work .subcontorno {
+        margin: 20px;
+        width: 100px
+    }
+
+    .works .work .subcontorno p {
+        font-size: 8rem;
+        margin: 5px;
+    }
+}
+
+/* FOOTER */
 
 .footer {
     grid-area: footer;
-    background-color: #92b;
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 0;
 }
+
+.footer h4{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer nav {
+    margin: 50px 0;
+}
+
+.footer nav ul{
+    display: flex;
+    justify-content: center;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.footer nav ul li a{
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.footer nav ul li a:hover{
+    font-weight: 700;
+    color: var(--verde);
+}
+
+.footer .social i{
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.footer .social a{
+    margin: 20px;
+}
+
+.footer .social a:hover{
+    color: var(--verde);
+}
+
+
