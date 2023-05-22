@@ -5,7 +5,7 @@ html {
 body {
     display: grid;
     grid-template-areas: "header header "
-        "hero hero "
+        "hero hero"
         "about about"
         "services services"
         "works works"
@@ -50,6 +50,7 @@ body {
     grid-template-columns: 1fr 1fr;
     max-width: var(--max-width-size);
     margin: 0 auto;
+    border-bottom: 3px solid var(--preto);
 }
 
 .hero .texto-principal {
@@ -60,7 +61,6 @@ body {
     justify-content: center;
     align-items: center;
     border-right: 3px solid var(--preto);
-    border-bottom: 3px solid var(--preto);
 }
 
 .hero .texto-principal h2 {
@@ -79,7 +79,6 @@ body {
 
 .hero .quadro-gatos {
     padding: 10%;
-    border-bottom: 3px solid var(--preto);
 }
 
 .hero .quadro-gatos img {
@@ -98,10 +97,11 @@ body {
     }
 }
 
-@media (max-width:425px) {
+@media (max-width:426px) {
     .hero .texto-principal {
         text-align: center;
         border-right: 0;
+        border-bottom: 3px solid var(--preto);
     }
 
     .hero {
@@ -118,24 +118,26 @@ body {
     grid-template-columns: 1fr 1fr;
     max-width: var(--max-width-size);
     margin: 0 auto;
+    border-bottom: 3px solid var(--preto);
 }
 
 .about .avatars {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    padding: 10%;
     border-right: 3px solid var(--preto);
 }
 
 .about .circle {
-    position: relative;
-    height: 180px;
-    width: 180px;
+    margin: -20px;
+    justify-content: center;
+    height: 175px;
+    width: 175px;
     overflow: hidden;
     border-radius: 50%;
     border: 3px solid var(--preto);
-    box-shadow: 3px 3px 0 0 var(--preto);
+    box-shadow: 6px 6px 0 0 var(--preto);
 }
 
 .about .circle.primeiro {
@@ -182,59 +184,222 @@ body {
     }
 
     .about .circle {
-        height: 100px;
-        width: 100px;
+        margin: -18px;
+        height: 137px;
+        width: 137px;
+        box-shadow: 5px 5px 0 0 var(--preto);
     }
 }
 
-@media (max-width:425px) {
+@media (max-width:426px) {
+    .about {
+        grid-template-areas: "sobre" "avatar";
+        grid-template-columns: 1fr;
+    }
+
     .about .avatars {
+        grid-area: avatar;
+        border-right: 0;
+    }
+
+    .about .circle {
+        margin: -12px;
+        height: 100px;
+        width: 100px;
+        box-shadow: 3px 3px 0 0 var(--preto);
+    }
+
+    .about .texto-sobre {
+        grid-area: sobre;
+        text-align: center;
         border-right: 0;
         border-bottom: 3px solid var(--preto);
     }
 
-    .about .circle {
-        height: 100px;
-        width: 100px;
-    }
-
-    .about .texto-sobre {
-        text-align: center;
-        border-right: 0;
-    }
-
-    /*
-    .about .avatars{
-        flex-direction: column;
-    }
-    .about .circle.primeiro {
-        left: 0;
-    }
-    .about .circle.terceiro {
-        right: 0;
-    }
-    */
-    
-    .about {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, auto);
-    }
 }
 
-
-
-
-
+/* SERVICES */
 
 .services {
     grid-area: services;
-    background-color: #92b;
+    display: grid;
+    grid-template-areas: "title title" "web-dev app-design";
+    max-width: var(--max-width-size);
+    margin: 0 auto;
+    position: relative;
 }
+
+.services .title {
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+}
+
+.services .title h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    background-color: var(--roxo);
+    display: flex;
+    width: 450px;
+    height: 90px;
+    justify-content: center;
+    align-items: center;
+    margin: 72px;
+    border: 3px solid var(--preto);
+    border-radius: 15px;
+    box-shadow: 8px 8px 0 0 var(--preto);
+}
+
+.services .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    gap: 25px;
+    margin: 0 50px 0 50px;
+    width: 500px;
+    height: 650px;
+    border: 3px solid var(--preto);
+    border-radius: 15px;
+    box-shadow: 8px 8px 0 0 var(--preto);
+}
+
+
+.services .card h3 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.services .card p {
+    font-size: 3rem;
+    text-align: center;
+    margin: 80px;
+    margin-top: 0;
+}
+
+.services .card img {
+    margin-top: 60px;
+    height: 230px;
+}
+
+.services .card.dev {
+    grid-area: web-dev;
+}
+
+.services .card.mobile {
+    grid-area: app-design
+}
+
+.services .rectangle {
+    position: absolute;
+    width: 100%;
+    height: 70vh;
+    border-bottom: 3px solid var(--preto);
+}
+
+.services .rectangle.green {
+    background-color: var(--verde);
+    z-index: -1;
+}
+
+.services .rectangle.yellow {
+    top: 80px;
+    background-color: var(--amarelo);
+    z-index: -2;
+}
+
+.services .rectangle.purple {
+    top: 160px;
+    background-color: var(--roxo);
+    z-index: -3;
+}
+
+@media only screen and (max-width:1024px) and (min-width:768px) {
+    .services .card {
+        width: 400px;
+        height: 600px;
+    }
+
+    .services .card p {
+        margin: 50px;
+        margin-top: 0;
+    }
+
+    .services .card img {
+        height: 200px;
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (max-width:768px) and (min-width:425px) {
+
+    .services .title h2,
+    .services .card h3,
+    .services .card p {
+        font-size: 2rem;
+    }
+
+    .services .title h2 {
+        width: 300px;
+        height: 75px;
+        margin: 40px;
+    }
+
+    .services .card {
+        width: 300px;
+        height: 450px;
+        margin: 0 20px 0 20px;
+    }
+
+    .services .card img {
+        height: 150px;
+    }
+}
+
+@media (max-width:426px) {
+    .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .services .card {
+        margin-bottom: 40px;
+        height: 430px;
+    }
+
+    .services .card p {
+        margin: 30px;
+        margin-top: 0;
+    }
+
+    .services .card img {
+        height: 150px;
+        margin-top: 40px;
+    }
+}
+
+/* WORKS */
 
 .works {
     grid-area: works;
-    background-color: #29b;
+    display: grid;
+    grid-template-areas: "title title title" "R G B";
 }
+
+.work.r{
+    grid-area: R;
+}
+
+.work.g{
+    grid-area: G;
+}
+
+.work.j{
+    grid-area: J;
+}
+
 
 .footer {
     grid-area: footer;
